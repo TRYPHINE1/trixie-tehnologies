@@ -323,3 +323,214 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
+/* =========================================================
+   TRIXIE TECHNOLOGIES
+   SCROLL CONTROLLED 3D HERO ROTATION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const platform = document.querySelector(".workflow-platform");
+    const cube = document.querySelector(".core-cube");
+    const scene = document.querySelector(".workflow-scene");
+
+    if (!platform) return;
+
+    let currentRotation = 0;
+    let targetRotation = 0;
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+
+    /*
+     * How strong the rotation is.
+     * Increase this number for MORE visible rotation.
+     */
+    const rotationStrength = 0.45;
+
+    /*
+     * Maximum rotation speed per frame.
+     * Prevents the object from spinning wildly.
+     */
+    const maxVelocity = 12;
+
+    /*
+     * Smoothness.
+     * Higher = follows scrolling faster.
+     */
+    const smoothing = 0.14;
+
+    function updateScrollRotation() {
+
+        const currentScrollY = window.scrollY;
+
+        /*
+         * Calculate how much the user has scrolled.
+         */
+        const scrollDelta = currentScrollY - lastScrollY;
+
+        /*
+         * Convert scrolling into rotation.
+         */
+        scrollVelocity = scrollDelta * rotationStrength;
+
+        /*
+         * Limit the rotation speed.
+         */
+        scrollVelocity = Math.max(
+            -maxVelocity,
+            Math.min(maxVelocity, scrollVelocity)
+        );
+
+        /*
+         * Add rotation.
+         */
+        targetRotation += scrollVelocity;
+
+        lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener("scroll", updateScrollRotation, {
+        passive: true
+    });
+
+    function animate3D() {
+
+        /*
+         * Smoothly move current rotation
+         * toward the desired rotation.
+         */
+        currentRotation +=
+            (targetRotation - currentRotation) * smoothing;
+
+        /*
+         * Main platform rotation.
+         *
+         * X gives the 3D tilt.
+         * Y gives side-to-side movement.
+         * Z gives the obvious circular rotation.
+         */
+        platform.style.transform = `
+            rotateX(55deg)
+            rotateY(${currentRotation * 0.12}deg)
+            rotateZ(${currentRotation - 35}deg)
+            scale(1.02)
+        `;
+
+        /*
+         * Rotate the central cube separately.
+         * This makes the center feel more dynamic.
+         */
+        if (cube) {
+
+            cube.style.transform = `
+                rotateX(${currentRotation * 0.8}deg)
+                rotateY(${currentRotation * 0.9}deg)
+                rotateZ(${currentRotation * 0.35}deg)
+            `;
+        }
+
+        /*
+         * Very subtle scene movement.
+         * This does NOT continuously rotate it.
+         */
+        if (scene) {
+
+            const sceneMovement =
+                Math.min(Math.abs(scrollVelocity) * 0.25, 5);
+
+            scene.style.transform = `
+                translateY(${-sceneMovement}px)
+            `;
+        }
+
+        /*
+         * Gradually slow the scroll velocity when
+         * the user stops scrolling.
+         */
+        scrollVelocity *= 0.88;
+
+        requestAnimationFrame(animate3D);
+    }
+
+    animate3D();
+
+});
+
+
+
+/* =========================================================
+   TRIXIE — WORKFLOW STAGE HIGHLIGHTING
+   DISCOVER → DESIGN → DEVELOP → DEPLOY
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hero = document.querySelector(".workflow-hero");
+
+    const nodes = [
+        document.querySelector(".node-discover"),
+        document.querySelector(".node-design"),
+        document.querySelector(".node-develop"),
+        document.querySelector(".node-deploy")
+    ].filter(Boolean);
+
+    if (!hero || !nodes.length) return;
+
+    function updateWorkflowStages() {
+
+        const rect = hero.getBoundingClientRect();
+
+        const totalScrollable =
+            Math.max(hero.offsetHeight - window.innerHeight, 1);
+
+        const passed =
+            Math.max(0, Math.min(
+                totalScrollable,
+                -rect.top
+            ));
+
+        const progress = passed / totalScrollable;
+
+        /*
+         * Divide the process into 4 clear stages.
+         */
+        let activeStage = Math.floor(progress * 4);
+
+        if (activeStage > 3) {
+            activeStage = 3;
+        }
+
+        nodes.forEach((node, index) => {
+
+            node.classList.remove(
+                "active",
+                "is-active",
+                "current",
+                "completed"
+            );
+
+            if (index < activeStage) {
+                node.classList.add("completed");
+            }
+
+            if (index === activeStage) {
+                node.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateWorkflowStages,
+        { passive: true }
+    );
+
+    window.addEventListener(
+        "resize",
+        updateWorkflowStages
+    );
+
+    updateWorkflowStages();
+});
