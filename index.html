@@ -76,6 +76,394 @@
             background-image: radial-gradient(rgba(155, 17, 30, 0.12) 1px, transparent 1px);
             background-size: 32px 32px;
         }
+
+
+        /* =========================================================
+   TRIXIE TECHNOLOGIES — SCROLL CONTROLLED 3D HERO
+   Rotates ONLY when the user scrolls
+   ========================================================= */
+
+.workflow-platform {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.12s ease-out;
+}
+
+.workflow-core .core-cube {
+    transform-style: preserve-3d;
+    will-change: transform;
+    animation: none !important;
+}
+
+.workflow-scene {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Keep the visual effects alive without rotating the object */
+.workflow-core {
+    filter:
+        drop-shadow(0 0 15px rgba(198, 90, 117, .35))
+        drop-shadow(0 0 35px rgba(198, 90, 117, .18))
+        drop-shadow(0 25px 45px rgba(0, 0, 0, .55));
+}
+
+/* Connection lines can pulse, but they DO NOT rotate */
+.connection-path {
+    animation: heroConnectionPulse 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 4px rgba(198, 90, 117, .55));
+}
+
+@keyframes heroConnectionPulse {
+    0%, 100% {
+        opacity: .35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Rings remain still until scrolling */
+.ring-a,
+.ring-b,
+.ring-c {
+    animation: none !important;
+    will-change: transform;
+}
+
+/* Floating panels remain independent */
+.floating-panel {
+    animation-duration: 3s;
+}
+
+/* Prevent the platform from fighting JavaScript */
+.workflow-platform {
+    animation: none !important;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .workflow-platform {
+        transition: transform 0.1s ease-out;
+    }
+
+    .workflow-core .core-cube {
+        animation: none !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 520px) {
+    .workflow-platform {
+        transition: transform 0.08s ease-out;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .workflow-platform,
+    .workflow-core .core-cube,
+    .workflow-scene,
+    .ring-a,
+    .ring-b,
+    .ring-c,
+    .connection-path,
+    .floating-panel {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   TRIXIE — MORE NOTICEABLE WORKFLOW PROCESS
+   Discover → Design → Develop → Deploy
+   ========================================================= */
+
+.workflow-node {
+    position: absolute;
+    z-index: 20;
+    width: 120px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 16px 12px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 20, 28, 0.96),
+            rgba(10, 10, 15, 0.92)
+        );
+
+    border: 1px solid rgba(198, 90, 117, 0.35);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(198, 90, 117, 0.12);
+
+    transform:
+        translateZ(40px)
+        scale(1);
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease,
+        opacity 0.35s ease;
+
+    opacity: 0.62;
+}
+
+
+/* ICON */
+.workflow-node i,
+.workflow-node .node-icon {
+    font-size: 25px;
+    margin-bottom: 9px;
+
+    color: #c65a75;
+
+    filter:
+        drop-shadow(0 0 8px rgba(198, 90, 117, 0.45));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* STAGE NAME */
+.workflow-node span,
+.workflow-node .node-title {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    transition:
+        color 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+
+/* SMALL DESCRIPTION IF PRESENT */
+.workflow-node small,
+.workflow-node .node-description {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 9px;
+    line-height: 1.3;
+
+    color: rgba(255,255,255,0.55);
+}
+
+
+/* =========================================================
+   ACTIVE WORKFLOW NODE
+   ========================================================= */
+
+.workflow-node.active,
+.workflow-node.is-active,
+.workflow-node.current {
+    opacity: 1;
+
+    transform:
+        translateZ(85px)
+        scale(1.28);
+
+    border-color: #c65a75;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40, 20, 28, 0.98),
+            rgba(12, 10, 16, 0.98)
+        );
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(198, 90, 117, 0.65),
+        0 0 55px rgba(198, 90, 117, 0.30);
+}
+
+
+.workflow-node.active i,
+.workflow-node.is-active i,
+.workflow-node.current i,
+.workflow-node.active .node-icon,
+.workflow-node.is-active .node-icon,
+.workflow-node.current .node-icon {
+    transform: scale(1.18);
+
+    filter:
+        drop-shadow(0 0 7px #c65a75)
+        drop-shadow(0 0 18px rgba(198, 90, 117, 0.8));
+}
+
+
+.workflow-node.active span,
+.workflow-node.is-active span,
+.workflow-node.current span,
+.workflow-node.active .node-title,
+.workflow-node.is-active .node-title,
+.workflow-node.current .node-title {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(198, 90, 117, 0.75);
+}
+
+
+/* =========================================================
+   COMPLETED NODES
+   ========================================================= */
+
+.workflow-node.completed {
+    opacity: 0.9;
+
+    border-color: rgba(198, 90, 117, 0.65);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4),
+        0 0 15px rgba(198,90,117,0.25);
+}
+
+
+/* =========================================================
+   CONNECTING LINES
+   ========================================================= */
+
+.connection-path {
+    stroke: rgba(198, 90, 117, 0.28);
+
+    stroke-width: 2;
+
+    transition:
+        stroke 0.4s ease,
+        stroke-width 0.4s ease,
+        filter 0.4s ease;
+}
+
+
+/* Active connection */
+.connection-path.active,
+.connection-path.is-active {
+    stroke: #c65a75;
+
+    stroke-width: 4;
+
+    filter:
+        drop-shadow(0 0 5px #c65a75)
+        drop-shadow(0 0 15px rgba(198,90,117,0.7));
+}
+
+
+/* =========================================================
+   CORE
+   ========================================================= */
+
+.workflow-core {
+    z-index: 15;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+
+/* Make central cube more visible */
+.workflow-core .core-cube {
+    filter:
+        drop-shadow(0 0 12px rgba(198,90,117,0.7))
+        drop-shadow(0 0 30px rgba(198,90,117,0.35));
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .workflow-node {
+        width: 92px;
+        min-height: 92px;
+
+        padding: 10px 8px;
+
+        border-radius: 16px;
+    }
+
+    .workflow-node i,
+    .workflow-node .node-icon {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .workflow-node span,
+    .workflow-node .node-title {
+        font-size: 10px;
+        letter-spacing: 0.8px;
+    }
+
+    .workflow-node small,
+    .workflow-node .node-description {
+        font-size: 7px;
+    }
+
+    .workflow-node.active,
+    .workflow-node.is-active,
+    .workflow-node.current {
+        transform:
+            translateZ(65px)
+            scale(1.18);
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .workflow-node {
+        width: 78px;
+        min-height: 78px;
+
+        padding: 8px 6px;
+    }
+
+    .workflow-node i,
+    .workflow-node .node-icon {
+        font-size: 17px;
+    }
+
+    .workflow-node span,
+    .workflow-node .node-title {
+        font-size: 8px;
+    }
+
+    .workflow-node.active,
+    .workflow-node.is-active,
+    .workflow-node.current {
+        transform:
+            translateZ(55px)
+            scale(1.14);
+    }
+}
+
+
     </style>
 </head>
 
