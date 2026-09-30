@@ -6009,33 +6009,32 @@ img {
 //* =========================================================
    TRIXIE TECHNOLOGIES
    CLIENTS / PARTNERS
-   CLEAN RESPONSIVE SLIDER
+   CLEAN CSS-ONLY MARQUEE
    ========================================================= */
 
 
 /* =========================================================
-   MAIN SECTION
+   CLIENTS SECTION
    ========================================================= */
 
 .clients-section {
+    position: relative;
     width: 100%;
-    max-width: 100%;
     overflow: hidden;
 }
 
 .clients-section .section-container {
     width: 100%;
-    max-width: 100%;
 }
 
 
 /* =========================================================
-   HEADER
+   CLIENTS HEADER
    ========================================================= */
 
-.clients-header {
-    width: 100%;
+.clients-section .clients-header {
     position: relative;
+    width: 100%;
     z-index: 2;
 }
 
@@ -6044,69 +6043,45 @@ img {
    SLIDER WINDOW
    ========================================================= */
 
-.clients-window {
+.clients-section .clients-window {
     position: relative;
 
+    display: block;
+
     width: 100%;
-    max-width: 100%;
 
     margin-top: 35px;
 
     overflow: hidden;
 
     /*
-     * Allows normal vertical page scrolling
-     * on phones.
+     * Important:
+     * Only this section controls overflow.
      */
-    touch-action: pan-y;
-
-    /*
-     * Soft fade at the edges.
-     */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        #000 4%,
-        #000 96%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        #000 4%,
-        #000 96%,
-        transparent 100%
-    );
+    contain: layout paint;
 }
 
 
 /* =========================================================
-   SLIDER TRACK
+   MARQUEE TRACK
    ========================================================= */
 
-.clients-marquee {
+.clients-section .clients-marquee {
     display: flex;
-
     flex-direction: row;
     flex-wrap: nowrap;
 
     align-items: center;
 
     width: max-content;
-    max-width: none;
 
     gap: 24px;
 
     /*
-     * IMPORTANT:
-     * JavaScript controls the movement.
-     *
-     * There is NO CSS animation here.
+     * CSS controls the slider.
+     * No JavaScript required.
      */
-    animation: none !important;
-
-    transform: translate3d(0, 0, 0);
+    animation: trixieClientsSlide 30s linear infinite;
 
     will-change: transform;
 
@@ -6116,11 +6091,33 @@ img {
 
 
 /* =========================================================
+   SEAMLESS MOVEMENT
+   ========================================================= */
+
+@keyframes trixieClientsSlide {
+
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+
+/* =========================================================
    CLIENT CARD
    ========================================================= */
 
-.client-card {
+.clients-section .client-card {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 
     flex: 0 0 190px;
 
@@ -6130,16 +6127,9 @@ img {
 
     height: 145px;
 
-    box-sizing: border-box;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
     padding: 18px 15px;
+
+    box-sizing: border-box;
 
     border-radius: 18px;
 
@@ -6149,9 +6139,6 @@ img {
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    /*
-     * Prevent the cards from shrinking.
-     */
     flex-shrink: 0;
 
     transition:
@@ -6162,17 +6149,17 @@ img {
 
 
 /* =========================================================
-   LOGO AREA
+   LOGO CONTAINER
    ========================================================= */
 
-.client-logo {
-    width: 100%;
-    height: 85px;
-
+.clients-section .client-logo {
     display: flex;
 
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    height: 85px;
 
     overflow: hidden;
 
@@ -6181,10 +6168,10 @@ img {
 
 
 /* =========================================================
-   LOGO IMAGE
+   LOGO
    ========================================================= */
 
-.client-logo img {
+.clients-section .client-logo img {
     display: block;
 
     width: auto;
@@ -6195,14 +6182,9 @@ img {
 
     object-fit: contain;
 
-    /*
-     * Keeps different logo proportions
-     * looking natural.
-     */
     margin: 0 auto;
 
-    transition:
-        transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 
@@ -6210,7 +6192,7 @@ img {
    CLIENT NAME
    ========================================================= */
 
-.client-card > span {
+.clients-section .client-card > span {
     display: block;
 
     width: 100%;
@@ -6219,21 +6201,19 @@ img {
 
     text-align: center;
 
+    color: rgba(255, 255, 255, 0.78);
+
     font-size: 12px;
 
     line-height: 1.25;
 
     font-weight: 600;
 
-    color: rgba(255, 255, 255, 0.78);
-
     white-space: nowrap;
 
     overflow: hidden;
 
     text-overflow: ellipsis;
-
-    flex-shrink: 0;
 }
 
 
@@ -6243,54 +6223,39 @@ img {
 
 @media (hover: hover) and (pointer: fine) {
 
-    .client-card:hover {
+    .clients-section .client-card:hover {
         transform: translateY(-5px);
 
-        border-color:
-            rgba(198, 90, 117, 0.5);
+        border-color: rgba(198, 90, 117, 0.45);
 
         box-shadow:
-            0 12px 35px rgba(0, 0, 0, 0.3),
-            0 0 20px rgba(198, 90, 117, 0.12);
+            0 12px 35px rgba(0, 0, 0, 0.30),
+            0 0 20px rgba(198, 90, 117, 0.10);
     }
 
-    .client-card:hover .client-logo img {
+    .clients-section .client-card:hover .client-logo img {
         transform: scale(1.06);
     }
 }
 
 
 /* =========================================================
-   TABLETS
+   TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
 
-    .clients-window {
+    .clients-section .clients-window {
         margin-top: 28px;
-
-        -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            #000 3%,
-            #000 97%,
-            transparent 100%
-        );
-
-        mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            #000 3%,
-            #000 97%,
-            transparent 100%
-        );
     }
 
-    .clients-marquee {
+    .clients-section .clients-marquee {
         gap: 18px;
+
+        animation-duration: 26s;
     }
 
-    .client-card {
+    .clients-section .client-card {
         flex: 0 0 165px;
 
         width: 165px;
@@ -6304,16 +6269,16 @@ img {
         border-radius: 16px;
     }
 
-    .client-logo {
+    .clients-section .client-logo {
         height: 72px;
     }
 
-    .client-logo img {
+    .clients-section .client-logo img {
         max-width: 95%;
         max-height: 62px;
     }
 
-    .client-card > span {
+    .clients-section .client-card > span {
         font-size: 11px;
     }
 }
@@ -6325,65 +6290,34 @@ img {
 
 @media (max-width: 600px) {
 
-    .clients-section {
+    .clients-section .clients-window {
         width: 100%;
-        max-width: 100vw;
-
-        overflow: hidden;
-    }
-
-    .clients-section .section-container {
-        width: 100%;
-        max-width: 100vw;
-
-        overflow: hidden;
-    }
-
-    .clients-window {
-        width: 100%;
-        max-width: 100vw;
 
         margin-top: 24px;
 
         overflow: hidden;
 
+        /*
+         * Do NOT change body/html overflow here.
+         */
         touch-action: pan-y;
-
-        -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            #000 6%,
-            #000 94%,
-            transparent 100%
-        );
-
-        mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            #000 6%,
-            #000 94%,
-            transparent 100%
-        );
     }
 
-    .clients-marquee {
-        width: max-content;
-        max-width: none;
-
+    .clients-section .clients-marquee {
         gap: 14px;
 
-        flex-wrap: nowrap;
+        /*
+         * Faster on mobile.
+         */
+        animation-duration: 21s;
 
         /*
-         * No animation.
-         * JavaScript handles movement.
+         * Prevent flex wrapping.
          */
-        animation: none !important;
-
-        transform: translate3d(0, 0, 0);
+        flex-wrap: nowrap;
     }
 
-    .client-card {
+    .clients-section .client-card {
         flex: 0 0 155px;
 
         width: 155px;
@@ -6397,17 +6331,16 @@ img {
         border-radius: 15px;
     }
 
-    .client-logo {
-        width: 100%;
+    .clients-section .client-logo {
         height: 67px;
     }
 
-    .client-logo img {
+    .clients-section .client-logo img {
         max-width: 92%;
         max-height: 57px;
     }
 
-    .client-card > span {
+    .clients-section .client-card > span {
         margin-top: 7px;
 
         font-size: 10px;
@@ -6423,15 +6356,17 @@ img {
 
 @media (max-width: 480px) {
 
-    .clients-window {
+    .clients-section .clients-window {
         margin-top: 20px;
     }
 
-    .clients-marquee {
+    .clients-section .clients-marquee {
         gap: 12px;
+
+        animation-duration: 19s;
     }
 
-    .client-card {
+    .clients-section .client-card {
         flex: 0 0 145px;
 
         width: 145px;
@@ -6445,16 +6380,16 @@ img {
         border-radius: 14px;
     }
 
-    .client-logo {
+    .clients-section .client-logo {
         height: 62px;
     }
 
-    .client-logo img {
+    .clients-section .client-logo img {
         max-width: 90%;
         max-height: 53px;
     }
 
-    .client-card > span {
+    .clients-section .client-card > span {
         font-size: 9.5px;
     }
 }
@@ -6466,15 +6401,17 @@ img {
 
 @media (max-width: 360px) {
 
-    .clients-window {
+    .clients-section .clients-window {
         margin-top: 18px;
     }
 
-    .clients-marquee {
+    .clients-section .clients-marquee {
         gap: 10px;
+
+        animation-duration: 17s;
     }
 
-    .client-card {
+    .clients-section .client-card {
         flex: 0 0 135px;
 
         width: 135px;
@@ -6488,16 +6425,16 @@ img {
         border-radius: 13px;
     }
 
-    .client-logo {
+    .clients-section .client-logo {
         height: 57px;
     }
 
-    .client-logo img {
+    .clients-section .client-logo img {
         max-width: 88%;
         max-height: 48px;
     }
 
-    .client-card > span {
+    .clients-section .client-card > span {
         font-size: 9px;
     }
 }
@@ -6509,25 +6446,14 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
 
-    .clients-marquee {
-        animation: none !important;
+    .clients-section .clients-marquee {
+        animation-play-state: paused;
     }
 
-    .client-card,
-    .client-logo img {
-        transition: none !important;
+    .clients-section .client-card,
+    .clients-section .client-logo img {
+        transition: none;
     }
-}
-
-
-/* =========================================================
-   SAFETY — PREVENT HORIZONTAL PAGE SCROLL
-   ========================================================= */
-
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 /* =========================================================
