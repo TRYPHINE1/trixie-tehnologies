@@ -6006,370 +6006,529 @@ img {
 }
 
 
+//* =========================================================
+   TRIXIE TECHNOLOGIES
+   CLIENTS / PARTNERS
+   CLEAN RESPONSIVE SLIDER
+   ========================================================= */
+
+
 /* =========================================================
-   CLIENTS
-========================================================= */
+   MAIN SECTION
+   ========================================================= */
 
 .clients-section {
-    background: #ffffff;
-    color: #111111;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
 }
 
+.clients-section .section-container {
+    width: 100%;
+    max-width: 100%;
+}
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .clients-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.clients-header .section-label {
-    color: #777;
-}
-
-.clients-header h2 {
-    color: #111;
-}
-
-.clients-header h2 span {
-    color: var(--maroon-light);
-}
-
-.clients-intro {
-    max-width: 380px;
-    color: #777;
-    font-size: 13px;
-    line-height: 1.8;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 
 /* =========================================================
    SLIDER WINDOW
-========================================================= */
+   ========================================================= */
 
 .clients-window {
-    width: 100%;
-    overflow: hidden;
-    margin-top: 65px;
-
     position: relative;
 
-    /* Fade edges */
-    mask-image:
-        linear-gradient(
-            90deg,
-            transparent,
-            #000 5%,
-            #000 95%,
-            transparent
-        );
+    width: 100%;
+    max-width: 100%;
 
-    -webkit-mask-image:
-        linear-gradient(
-            90deg,
-            transparent,
-            #000 5%,
-            #000 95%,
-            transparent
-        );
+    margin-top: 35px;
+
+    overflow: hidden;
+
+    /*
+     * Allows normal vertical page scrolling
+     * on phones.
+     */
+    touch-action: pan-y;
+
+    /*
+     * Soft fade at the edges.
+     */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 4%,
+        #000 96%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 4%,
+        #000 96%,
+        transparent 100%
+    );
 }
 
 
 /* =========================================================
-   CONTINUOUS MOVING TRACK
-========================================================= */
+   SLIDER TRACK
+   ========================================================= */
 
 .clients-marquee {
     display: flex;
-    align-items: stretch;
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
 
     width: max-content;
+    max-width: none;
 
-    gap: 20px;
+    gap: 24px;
 
-    animation:
-        clientsContinuousMove
-        32s
-        linear
-        infinite;
+    /*
+     * IMPORTANT:
+     * JavaScript controls the movement.
+     *
+     * There is NO CSS animation here.
+     */
+    animation: none !important;
+
+    transform: translate3d(0, 0, 0);
 
     will-change: transform;
-}
 
-
-/*
-   The track contains two identical sets.
-
-   Moving exactly 50% creates a seamless
-   infinite loop.
-*/
-
-@keyframes clientsContinuousMove {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 
 /* =========================================================
    CLIENT CARD
-========================================================= */
+   ========================================================= */
 
 .client-card {
+    position: relative;
 
-    flex: 0 0 230px;
+    flex: 0 0 190px;
 
-    min-height: 170px;
+    width: 190px;
+    min-width: 190px;
+    max-width: 190px;
 
-    padding: 25px;
+    height: 145px;
 
-    
-background: #ffffff;
+    box-sizing: border-box;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    text-align: center;
+    padding: 18px 15px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    /*
+     * Prevent the cards from shrinking.
+     */
+    flex-shrink: 0;
 
     transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
-
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* =========================================================
    LOGO AREA
-========================================================= */
+   ========================================================= */
 
 .client-logo {
-
-    width: 150px;
-
+    width: 100%;
     height: 85px;
-
-    margin-bottom: 18px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    background: #ffffff;
+    overflow: hidden;
 
+    flex-shrink: 0;
 }
 
 
-/* REAL LOGO IMAGE */
+/* =========================================================
+   LOGO IMAGE
+   ========================================================= */
 
 .client-logo img {
+    display: block;
 
-    width: 100%;
+    width: auto;
+    height: auto;
 
-    height: 100%;
+    max-width: 100%;
+    max-height: 75px;
 
     object-fit: contain;
 
+    /*
+     * Keeps different logo proportions
+     * looking natural.
+     */
+    margin: 0 auto;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   CLIENT NAME
+   ========================================================= */
+
+.client-card > span {
     display: block;
 
-}
+    width: 100%;
 
+    margin-top: 8px;
 
-/* CLIENT NAME */
+    text-align: center;
 
-.client-card span {
+    font-size: 12px;
 
-    color: #222;
+    line-height: 1.25;
 
-    font-size: 11px;
+    font-weight: 600;
 
-    font-weight: 700;
+    color: rgba(255, 255, 255, 0.78);
 
-    letter-spacing: 1.5px;
+    white-space: nowrap;
 
-    text-transform: uppercase;
+    overflow: hidden;
 
-}
+    text-overflow: ellipsis;
 
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-.client-card:hover {
-
-    transform: translateY(-6px);
-
-    border-color:
-        rgba(112,31,50,.25);
-
-background: #ffffff;
-   
-
+    flex-shrink: 0;
 }
 
 
 /* =========================================================
-   TABLET
-========================================================= */
+   DESKTOP HOVER
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .client-card:hover {
+        transform: translateY(-5px);
+
+        border-color:
+            rgba(198, 90, 117, 0.5);
+
+        box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(198, 90, 117, 0.12);
+    }
+
+    .client-card:hover .client-logo img {
+        transform: scale(1.06);
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
 
 @media (max-width: 900px) {
 
-    .clients-header {
+    .clients-window {
+        margin-top: 28px;
 
-        align-items: flex-start;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 3%,
+            #000 97%,
+            transparent 100%
+        );
 
-        flex-direction: column;
-
-    }
-
-    .clients-intro {
-
-        max-width: 550px;
-
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 3%,
+            #000 97%,
+            transparent 100%
+        );
     }
 
     .clients-marquee {
-
-        gap: 15px;
-
-        animation-duration: 28s;
-
+        gap: 18px;
     }
 
     .client-card {
+        flex: 0 0 165px;
 
-        flex-basis: 210px;
+        width: 165px;
+        min-width: 165px;
+        max-width: 165px;
 
-        min-height: 160px;
+        height: 130px;
 
+        padding: 14px 12px;
+
+        border-radius: 16px;
     }
 
     .client-logo {
-
-        width: 135px;
-
-        height: 75px;
-
+        height: 72px;
     }
 
+    .client-logo img {
+        max-width: 95%;
+        max-height: 62px;
+    }
+
+    .client-card > span {
+        font-size: 11px;
+    }
 }
 
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     .clients-section {
+        width: 100%;
+        max-width: 100vw;
 
-        padding-left: 0;
-
-        padding-right: 0;
-
+        overflow: hidden;
     }
 
-    .clients-header {
+    .clients-section .section-container {
+        width: 100%;
+        max-width: 100vw;
 
-        padding-left: 6%;
-
-        padding-right: 6%;
-
+        overflow: hidden;
     }
 
     .clients-window {
+        width: 100%;
+        max-width: 100vw;
 
-        margin-top: 45px;
+        margin-top: 24px;
 
-        mask-image:
-            linear-gradient(
-                90deg,
-                transparent,
-                #000 8%,
-                #000 92%,
-                transparent
-            );
+        overflow: hidden;
 
-        -webkit-mask-image:
-            linear-gradient(
-                90deg,
-                transparent,
-                #000 8%,
-                #000 92%,
-                transparent
-            );
+        touch-action: pan-y;
 
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
+
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
     }
 
     .clients-marquee {
+        width: max-content;
+        max-width: none;
 
-        gap: 12px;
+        gap: 14px;
 
-        animation-duration: 24s;
+        flex-wrap: nowrap;
 
+        /*
+         * No animation.
+         * JavaScript handles movement.
+         */
+        animation: none !important;
+
+        transform: translate3d(0, 0, 0);
     }
 
     .client-card {
+        flex: 0 0 155px;
 
-        flex-basis: 190px;
+        width: 155px;
+        min-width: 155px;
+        max-width: 155px;
 
-        min-height: 150px;
+        height: 120px;
 
-        padding: 20px;
+        padding: 12px 10px;
 
+        border-radius: 15px;
     }
 
     .client-logo {
-
-        width: 125px;
-
-        height: 70px;
-
-        margin-bottom: 14px;
-
+        width: 100%;
+        height: 67px;
     }
 
-    .client-card span {
-
-        font-size: 9px;
-
+    .client-logo img {
+        max-width: 92%;
+        max-height: 57px;
     }
 
+    .client-card > span {
+        margin-top: 7px;
+
+        font-size: 10px;
+
+        line-height: 1.2;
+    }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
-========================================================= */
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .clients-window {
+        margin-top: 20px;
+    }
+
+    .clients-marquee {
+        gap: 12px;
+    }
+
+    .client-card {
+        flex: 0 0 145px;
+
+        width: 145px;
+        min-width: 145px;
+        max-width: 145px;
+
+        height: 112px;
+
+        padding: 10px 8px;
+
+        border-radius: 14px;
+    }
+
+    .client-logo {
+        height: 62px;
+    }
+
+    .client-logo img {
+        max-width: 90%;
+        max-height: 53px;
+    }
+
+    .client-card > span {
+        font-size: 9.5px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .clients-window {
+        margin-top: 18px;
+    }
+
+    .clients-marquee {
+        gap: 10px;
+    }
+
+    .client-card {
+        flex: 0 0 135px;
+
+        width: 135px;
+        min-width: 135px;
+        max-width: 135px;
+
+        height: 105px;
+
+        padding: 9px 7px;
+
+        border-radius: 13px;
+    }
+
+    .client-logo {
+        height: 57px;
+    }
+
+    .client-logo img {
+        max-width: 88%;
+        max-height: 48px;
+    }
+
+    .client-card > span {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
     .clients-marquee {
-
-        animation:
-            none;
-
+        animation: none !important;
     }
 
+    .client-card,
+    .client-logo img {
+        transition: none !important;
+    }
 }
 
+
+/* =========================================================
+   SAFETY — PREVENT HORIZONTAL PAGE SCROLL
+   ========================================================= */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 /* =========================================================
    CONTACT
@@ -8107,3 +8266,6 @@ body { min-width: 320px; }
         padding-bottom: 2.5rem;
     }
 }
+
+
+
