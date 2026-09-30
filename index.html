@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trixie Technologies | Your Vision, Our Code</title>
+
+    <meta
+        name="description"
+        content="Trixie Technologies delivers web development, e-commerce, cybersecurity, IT support, data analytics, graphic design, hosting and digital solutions."
+    >
+
+    <link rel="icon" href="https://res.cloudinary.com/drno0hj9z/image/upload/v1790678257/B1D1597D-D9E9-4F4A-81EB-AB1530688A61_k37ggp.png">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+      <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+     <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f2',
+                            500: '#9b111e',
+                            600: '#800d17',
+                            900: '#4a050b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+     <style>
+       
+          body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d090a;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle grid background pattern */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(155, 17, 30, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================
+     PAGE LOADER
+========================================= -->
+
+<div class="page-loader" id="pageLoader">
+    <div class="loader-logo">
+        <img src="https://res.cloudinary.com/drno0hj9z/image/upload/v1790678928/D7162399-F677-49A9-BD53-FF2999FE12F4_twasqb.png" alt="TRIXIE TECHNOLOGIES logo">
+    </div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
+    <p>TRIXIE TECHNOLOGIES</p>
+</div>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="navbar" id="navbar">
+
+    <a href="index.html" class="logo" aria-label="TRIXIE TECHNOLOGIES home">
+        <img src="https://res.cloudinary.com/drno0hj9z/image/upload/v1790678928/D7162399-F677-49A9-BD53-FF2999FE12F4_twasqb.png" alt="TRIXIE TECHNOLOGIES" class="trixie-logo-image">
+    </a>
+
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <a href="#contact" class="nav-cta">
+        Start a Project
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+    >
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+
+<section class="workflow-hero" id="home">
+
+    <div class="workflow-noise"></div>
+    <div class="workflow-grid"></div>
+
+    
+
+    <!-- SCROLL EXPERIENCE -->
+    <div class="workflow-experience">
+
+        <div class="workflow-sticky">
+
+            <!-- LEFT INFORMATION -->
+            <div class="workflow-info">
+
+                <div class="workflow-counter">
+                    
+                    <span></span>
+                </div>
+
+                <div class="workflow-text">
+
+                    <span class="workflow-label" id="workflowLabel">
+                        PHASE 01 / DISCOVERY
+                    </span>
+
+                    <h2 id="workflowTitle">
+                        Every great solution starts with an idea.
+                    </h2>
+
+                    <p id="workflowDescription">
+                       A clear process built around strategy, thoughtful design, reliable development, testing and a smooth launch.
+                    </p>
+
+                </div>
+
+                <div class="workflow-progress">
+
+                    <div class="workflow-progress-track">
+                        <span id="workflowProgress"></span>
+                    </div>
+
+                    <div class="workflow-progress-text">
+                        <span id="workflowStepName">DISCOVER</span>
+                        <span>SCROLL TO TRANSFORM</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 3D WORKFLOW VISUAL -->
+            <div class="workflow-visual">
+
+               
+
+                <div class="workflow-scene" id="workflowScene">
+
+                    <div class="scene-glow"></div>
+
+                    <!-- ROTATING 3D PLATFORM -->
+                    <div class="workflow-platform">
+
+                        <div class="platform-ring ring-a"></div>
+                        <div class="platform-ring ring-b"></div>
+                        <div class="platform-ring ring-c"></div>
+
+                        <div class="platform-grid"></div>
+
+                        <!-- CONNECTION PATHS -->
+                        <svg class="workflow-connections"
+                             viewBox="0 0 600 520"
+                             preserveAspectRatio="xMidYMid meet">
+
+                            <path d="M300 260 L125 150 L300 65 L475 150 L300 260"
+                                  class="connection-path"/>
+
+                            <path d="M300 260 L475 370 L300 455 L125 370 L300 260"
+                                  class="connection-path"/>
+
+                            <path d="M125 150 L125 370 M475 150 L475 370 M300 65 L300 455"
+                                  class="connection-path secondary-path"/>
+
+                        </svg>
+
+                        <!-- WORKFLOW NODES -->
+                        <div class="workflow-node node-discover"
+                             data-node="0">
+                            <div class="node-icon">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span>IDEA</span>
+                        </div>
+
+                        <div class="workflow-node node-design"
+                             data-node="1">
+                            <div class="node-icon">
+                                <i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                            <span>DESIGN</span>
+                        </div>
+
+                        <div class="workflow-node node-develop"
+                             data-node="2">
+                            <div class="node-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <span>DEVELOP</span>
+                        </div>
+
+                        <div class="workflow-node node-deploy"
+                             data-node="3">
+                            <div class="node-icon">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <span>DEPLOY</span>
+                        </div>
+
+                        <!-- CENTRAL 3D OBJECT -->
+                        <div class="workflow-core" id="workflowCore">
+
+                            <div class="core-cube">
+
+                                <div class="core-face core-front">
+                                    <span>&lt;/&gt;</span>
+                                </div>
+
+                                <div class="core-face core-back">
+                                    <span>{ }</span>
+                                </div>
+
+                                <div class="core-face core-right">
+                                    <span>01</span>
+                                </div>
+
+                                <div class="core-face core-left">
+                                    <span>10</span>
+                                </div>
+
+                                <div class="core-face core-top">
+                                    <span>IT</span>
+                                </div>
+
+                                <div class="core-face core-bottom">
+                                    <span>TT</span>
+                                </div>
+
+                            </div>
+
+                            <div class="core-light"></div>
+
+                        </div>
+
+                        <!-- FLOATING INTERFACE PANELS -->
+                        <div class="floating-panel panel-code">
+
+                            <div class="panel-heading">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <small>app.js</small>
+                            </div>
+
+                            <div class="code-lines">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+
+                        </div>
+
+                        <div class="floating-panel panel-security">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <div>
+                                <strong>SECURE</strong>
+                                <span>Protection active</span>
+                            </div>
+
+                        </div>
+
+                        <div class="floating-panel panel-data">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <div>
+                                <strong>DATA FLOW</strong>
+                                <span>Processing...</span>
+                            </div>
+
+                        </div>
+
+                        <div class="floating-panel panel-live">
+
+                            <span class="live-dot"></span>
+                            SYSTEM ONLINE
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+              
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- BOTTOM BRAND STRIP -->
+<div class="workflow-bottom">
+    <div class="workflow-track">
+        <span>WEB DEVELOPMENT</span>
+        <i></i>
+        <span>BUSINESS SYSTEMS</span>
+        <i></i>
+        <span>CYBERSECURITY</span>
+        <i></i>
+        <span>DATA ANALYTICS</span>
+        <i></i>
+
+        <!-- Duplicate for seamless looping -->
+        <span>WEB DEVELOPMENT</span>
+        <i></i>
+        <span>BUSINESS SYSTEMS</span>
+        <i></i>
+        <span>CYBERSECURITY</span>
+        <i></i>
+        <span>DATA ANALYTICS</span>
+        <i></i>
+    </div>
+</div>
+
+
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section class="section about-section py-20 px-6 relative" id="about">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Section Label -->
+                <div class="section-label flex items-center space-x-3 text-rose-500 font-mono text-xs tracking-widest uppercase mb-12">
+                    
+                    
+                </div>
+
+                <!-- About Grid Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                    <!-- ABOUT VISUAL (Left Column - Spans 6 cols) -->
+                    <div class="about-visual reveal lg:col-span-6 relative">
+                        <div class="relative z-10 space-y-6">
+                            <!-- Main Image -->
+                            <div class="about-image-main image-parallax relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                                <img
+                                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=85"
+                                    alt="Developer working on modern web technology"
+                                    loading="lazy"
+                                    class="w-full h-[360px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                                    onerror="this.src='https://placehold.co/1000x360/1a1113/9b111e?text=Trixie+Technologies'"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0d090a]/80 via-transparent to-transparent"></div>
+                                
+                                <!-- Floating Badge -->
+                                <div class="absolute bottom-6 left-6 inline-flex items-center space-x-3 px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/15 backdrop-blur-md shadow-xl">
+                                    <div class="w-8 h-8 rounded-lg bg-rose-950 text-rose-500 flex items-center justify-center">
+                                        <i class="fa-solid fa-terminal text-sm"></i>
+                                    </div>
+                                    <span class="text-xs font-bold tracking-wider text-white">BUILDING THE FUTURE</span>
+                                </div>
+                            </div>
+
+                            <!-- Small Overlapping Secondary Image -->
+                            <div class="about-image-small image-parallax absolute -bottom-10 -right-6 md:-right-10 w-48 md:w-64 rounded-2xl overflow-hidden border border-white/10 shadow-2xl hidden sm:block z-20">
+                                <img
+                                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=85"
+                                    alt="Technology team collaborating"
+                                    loading="lazy"
+                                    class="w-full h-36 md:h-44 object-cover"
+                                    onerror="this.src='https://placehold.co/700x400/1a1113/9b111e?text=Collaboration'"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Decorative Glow Effect -->
+                        <div class="absolute -top-10 -left-10 w-72 h-72 bg-rose-900/15 rounded-full blur-3xl pointer-events-none"></div>
+                    </div>
+
+                    <!-- ABOUT HEADING & CONTENT (Right Column - Spans 6 cols) -->
+                    <div class="lg:col-span-6 space-y-8">
+                        
+                        <div class="about-heading reveal">
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                                Technology <br>
+                                <span class="bg-gradient-to-r from-rose-500 to-rose-300 bg-clip-text text-transparent">with purpose.</span>
+                            </h2>
+                        </div>
+
+                        <div class="about-content reveal space-y-6 text-slate-300">
+                            <p class="large-text text-lg sm:text-xl font-medium text-white leading-relaxed">
+                                Trixie Technologies is a digital technology company
+                                focused on helping businesses use technology to work
+                                smarter, look better and grow faster.
+                            </p>
+
+                            <p class="text-slate-400 text-base leading-relaxed">
+                                We combine modern web development, business systems,
+                                cybersecurity, data analytics and digital design to
+                                create practical solutions for organisations and
+                                entrepreneurs.
+                            </p>
+
+                            <div class="pt-2">
+                                <a href="#services" class="text-link inline-flex items-center space-x-3 text-rose-500 hover:text-rose-400 font-semibold transition-all group">
+                                    <span>Discover what we do</span>
+                                    <span class="w-8 h-8 rounded-full bg-rose-950/60 border border-rose-800/30 flex items-center justify-center group-hover:translate-x-1.5 transition-transform">
+                                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATS GRID -->
+        
+
+            </div>
+        </section>
+
+<!-- =========================================
+     SERVICES
+========================================= -->
+
+<section class="section services-section" id="services">
+
+    <div class="section-container">
+
+        <div class="section-header reveal">
+
+            <h2>
+                Digital tools for
+                <span>real world problems.</span>
+            </h2>
+
+           
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 01 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                        alt="Web development"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">01</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Modern, responsive and high-performance websites
+                        designed to turn visitors into customers.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Build a website
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 02 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+                        alt="E-commerce shopping experience"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">02</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <h3>E-Commerce</h3>
+
+                    <p>
+                        Online stores that make it easier for customers
+                        to discover, order and pay for your products.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Stores</span>
+                        <span>Payments</span>
+                        <span>Orders</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Start selling
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 03 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80"
+                        alt="Cybersecurity technology"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">03</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <h3>Cybersecurity</h3>
+
+                    <p>
+                        Practical security solutions that help protect
+                        your systems, information and digital operations.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Security</span>
+                        <span>Audit</span>
+                        <span>Protection</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Secure your business
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 04 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+                        alt="Business data analytics dashboard"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">04</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <h3>Data Analytics</h3>
+
+                    <p>
+                        Transform raw business information into clear,
+                        useful insights that support better decisions.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Reports</span>
+                        <span>Dashboards</span>
+                        <span>Insights</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Unlock your data
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 05 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80"
+                        alt="Business servers and IT infrastructure"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">05</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+
+                    <h3>IT Support</h3>
+
+                    <p>
+                        Reliable technical support, systems assistance
+                        and technology guidance for growing organisations.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Support</span>
+                        <span>Systems</span>
+                        <span>Networks</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Get support
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 06 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80"
+                        alt="Creative graphic design workspace"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">06</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+
+                    <h3>Graphic Design</h3>
+
+                    <p>
+                        Strong visual identities, marketing materials and
+                        digital graphics that make your brand memorable.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Branding</span>
+                        <span>Posters</span>
+                        <span>Design</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Design with us
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 07 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+                        alt="Cloud technology infrastructure"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">07</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+
+                    <h3>Web & Email Hosting</h3>
+
+                    <p>
+                        Professional hosting and business email solutions
+                        that keep your digital presence connected.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Hosting</span>
+                        <span>Email</span>
+                        <span>Domains</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Go online
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SERVICE 08 -->
+
+            <article class="service-card featured reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+                        alt="Business technology planning"
+                        loading="lazy"
+                    >
+
+                    <div class="service-image-overlay"></div>
+
+                    <span class="service-number">08</span>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+
+                    <h3>Business Systems</h3>
+
+                    <p>
+                        Custom business applications and digital workflows
+                        designed around how your organisation operates.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>ERP</span>
+                        <span>CRM</span>
+                        <span>Automation</span>
+                    </div>
+
+                    <a href="#contact" class="service-link">
+                        Build your system
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     VISUAL SHOWCASE
+========================================= -->
+
+<section class="section showcase-section">
+
+    <div class="section-container">
+
+        <div class="section-header showcase-header reveal">
+
+            
+
+            <h2>
+                Technology that
+                <span>looks as good as it works.</span>
+            </h2>
+
+
+        </div>
+
+
+        <div class="showcase-grid">
+
+
+            <article class="showcase-card showcase-large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=85"
+                    alt="Modern digital workspace"
+                    loading="lazy"
+                >
+
+                <div class="showcase-overlay"></div>
+
+                <div class="showcase-content">
+
+                    <span>01 / DIGITAL EXPERIENCE</span>
+
+                    <h3>Websites that make an impression.</h3>
+
+                    <p>
+                        Modern interfaces built around your brand,
+                        customers and business goals.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="showcase-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=85"
+                    alt="Business technology meeting"
+                    loading="lazy"
+                >
+
+                <div class="showcase-overlay"></div>
+
+                <div class="showcase-content">
+
+                    <span>02 / BUSINESS SYSTEMS</span>
+
+                    <h3>Systems built around your workflow.</h3>
+
+                </div>
+
+            </article>
+
+
+            <article class="showcase-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=85"
+                    alt="Secure technology infrastructure"
+                    loading="lazy"
+                >
+
+                <div class="showcase-overlay"></div>
+
+                <div class="showcase-content">
+
+                    <span>03 / INFRASTRUCTURE</span>
+
+                    <h3>Technology you can depend on.</h3>
+
+                </div>
+
+            </article>
+
+
+            <article class="showcase-card showcase-wide reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+                    alt="Analytics dashboard and business data"
+                    loading="lazy"
+                >
+
+                <div class="showcase-overlay"></div>
+
+                <div class="showcase-content">
+
+                    <span>04 / DATA & INSIGHTS</span>
+
+                    <h3>Turn information into better decisions.</h3>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WORK / PROCESS
+========================================= -->
+
+<section class="section process-section" id="work">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            
+        </div>
+
+
+        <div class="process-heading reveal">
+
+            <h2>
+                From idea
+                <span>to impact.</span>
+            </h2>
+
+           
+
+        </div>
+
+
+        <div class="process-line">
+
+
+            <div class="process-step reveal">
+
+                <div class="process-dot">01</div>
+
+                <div>
+                    <span>STEP ONE</span>
+                    <h3>Discover</h3>
+
+                    <p>
+                        We understand your business, goals and the
+                        problem you want technology to solve.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-dot">02</div>
+
+                <div>
+                    <span>STEP TWO</span>
+                    <h3>Design</h3>
+
+                    <p>
+                        We map out the experience, interface and
+                        technology required for the solution.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-dot">03</div>
+
+                <div>
+                    <span>STEP THREE</span>
+                    <h3>Build</h3>
+
+                    <p>
+                        Our development process turns the approved
+                        concept into a working digital product.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-dot">04</div>
+
+                <div>
+                    <span>STEP FOUR</span>
+                    <h3>Launch</h3>
+
+                    <p>
+                        We test, deploy and support the solution so
+                        your business can start using it.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     3D CTA
+========================================= -->
+
+<section class="vision-section">
+
+    <div class="vision-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1800&q=85"
+            alt="Technology team working together"
+            loading="lazy"
+        >
+
+        <div class="vision-image-overlay"></div>
+
+    </div>
+
+
+    <div class="vision-particles"></div>
+
+
+    <div class="vision-content reveal">
+
+        <div class="section-label">
+            <span>05</span>
+            YOUR NEXT MOVE
+        </div>
+
+        <h2>
+            Your idea deserves
+            <span>better technology.</span>
+        </h2>
+
+        <p>
+            Tell us what you want to build. We'll help you turn the
+            idea into something people can actually use.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+            Start Your Project
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CLIENTS / PARTNERS
+========================================================= -->
+
+<section class="clients-section section" id="clients">
+
+    <div class="section-container">
+
+        <div class="clients-header">
+
+            <div>
+                <div class="section-label">
+                    
+                </div>
+
+                <h2>
+                    Trusted by
+                    <span>Businesses.</span>
+                </h2>
+            </div>
+
+         
+        </div>
+
+        <!-- CONTINUOUS LOGO SLIDER -->
+        <div class="clients-window">
+
+            <div class="clients-marquee">
+
+                <!-- FIRST SET -->
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1784790291/ChatGPT_Image_Jul_23_2026_12_03_24_AM_vsbzcb.png"
+                            alt="Client 1 logo"
+                        >
+                    </div>
+
+                    <span>chwezi ndahura</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drqsua6wp/image/upload/v1769763361/BARIS_LOGO_TRANSPARENT_se8y8k.png"
+                            alt="Client 2 logo"
+                        >
+                    </div>
+
+                    <span>Baris Healthcare</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1781329231/Kasta_Logo_vsolgs.png"
+                            alt="Client 3 logo"
+                        >
+                    </div>
+
+                    <span>Kasta Holdings LTD</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1785233277/14fc3bf3-ba80-41e9-922a-af1b61ab8485_is9k0r.jpg"
+                            alt="Client 4 logo"
+                        >
+                    </div>
+
+                    <span>Trosh Investments LTD</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://tse1.mm.bing.net/th/id/OIP.Bt2mMBf17rpNHUt-08i1UwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Client 5 logo"
+                        >
+                    </div>
+
+                    <span>Iggy Controls</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://tse3.mm.bing.net/th/id/OIP.XTBWWgQ1gjw-IjCvgMgPfAHaCP?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Client 6 logo"
+                        >
+                    </div>
+
+                    <span>Stack Carbon</span>
+
+                </div>
+
+
+                <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1784790291/ChatGPT_Image_Jul_23_2026_12_03_24_AM_vsbzcb.png"
+                            alt="Client 1 logo"
+                        >
+                    </div>
+
+                    <span>CHWEZI ndahura</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drqsua6wp/image/upload/v1769763361/BARIS_LOGO_TRANSPARENT_se8y8k.png"
+                            alt="Client 2 logo"
+                        >
+                    </div>
+
+                    <span>Baris Healthcare</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1781329231/Kasta_Logo_vsolgs.png"
+                            alt="Client 3 logo"
+                        >
+                    </div>
+
+                    <span>Kasta Holdings LTD</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://res.cloudinary.com/drno0hj9z/image/upload/v1785233277/14fc3bf3-ba80-41e9-922a-af1b61ab8485_is9k0r.jpg"
+                            alt="Client 4 logo"
+                        >
+                    </div>
+
+                    <span>Trosh Investments LTD</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://tse1.mm.bing.net/th/id/OIP.Bt2mMBf17rpNHUt-08i1UwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Client 5 logo"
+                        >
+                    </div>
+
+                    <span>Iggy Controls</span>
+
+                </div>
+
+
+                <div class="client-card">
+
+                    <div class="client-logo">
+                        <img
+                            src="https://tse3.mm.bing.net/th/id/OIP.XTBWWgQ1gjw-IjCvgMgPfAHaCP?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="Client 6 logo"
+                        >
+                    </div>
+
+                    <span>Stack Carbon</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="section-container">
+
+        <div class="contact-grid">
+
+
+            <div class="contact-intro reveal">
+
+                <div class="section-label">
+                   
+                </div>
+
+                <h2>
+                    Have an idea?
+                    <span>Let's build it.</span>
+                </h2>
+
+               <br>
+
+
+                <!-- CONTACT IMAGE -->
+
+                <div class="contact-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85"
+                        alt="Technology professionals collaborating"
+                        loading="lazy"
+                    >
+<br>
+                    <div class="contact-image-overlay"></div>
+
+                    <div class="contact-image-text">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Kampala, Uganda
+                    </div>
+
+                </div>
+
+
+                <div class="contact-details">
+
+                    <a href="mailto:info@trixietechnologies.com">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <div>
+                            <span>Email</span>
+                            <strong>info@trixietechnologies.com</strong>
+                        </div>
+
+                    </a>
+
+
+                    <a href="tel:+256792366050">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <div>
+                            <span>Phone</span>
+                            <strong>+256 792 366 050</strong>
+                        </div>
+
+                    </a>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+                            <span>Location</span>
+                            <strong>Kampala, Uganda</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <form class="contact-form reveal" id="contactForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">Your Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="John Doe"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="john@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="service">What do you need?</label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option value="">
+                            Select a service
+                        </option>
+
+                        <option>Web Development</option>
+                        <option>E-Commerce</option>
+                        <option>Cybersecurity</option>
+                        <option>Data Analytics</option>
+                        <option>IT Support</option>
+                        <option>Graphic Design</option>
+                        <option>Hosting</option>
+                        <option>Business System</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Tell us about your project
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Tell us what you want to build..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary submit-btn"
+                >
+
+                    Send Project Request
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+
+                <p
+                    class="form-status"
+                    id="formStatus"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-main">
+
+             <a href="index.html" class="logo" aria-label="TRIXIE TECHNOLOGIES home">
+        <img src="https://res.cloudinary.com/drno0hj9z/image/upload/v1790678928/D7162399-F677-49A9-BD53-FF2999FE12F4_twasqb.png" alt="TRIXIE TECHNOLOGIES" class="trixie-logo-image">
+    </a>
+
+
+            <p>
+                Your Vision, Our Code.
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Services</h4>
+
+                <a href="#services">Web Development</a>
+                <a href="#services">Cybersecurity</a>
+                <a href="#services">Data Analytics</a>
+                <a href="#services">Business Systems</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © <span id="year"></span>
+            Trixie Technologies.
+            All rights reserved.
+        </span>
+
+        <span>
+            Designed & Developed by Trixie Technologies
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     WHATSAPP
+========================================= -->
+
+<a
+    href="https://wa.me/256792366050?text=Hello%20Trixie%20Technologies%2C%20I%20would%20like%20to%20discuss%20a%20project." 
+    class="whatsapp-button" 
+    target="_blank" 
+    rel="noopener" 
+    aria-label="Chat with Trixie Technologies on WhatsApp" 
+> 
+    <i class="fa-brands fa-whatsapp"></i> 
+    <span>Chat with us</span> 
+</a> 
+ 
+ 
+<!-- ========================================= 
+     CHATBOT 
+========================================= --> 
+ 
+<div class="chatbot" id="chatbot"> 
+ 
+    <button 
+        type="button" 
+        class="chatbot-button" 
+        id="chatbotButton" 
+        aria-label="Open Trixie assistant" 
+    > 
+        <i class="fa-solid fa-message"></i> 
+        <span class="chat-pulse"></span> 
+    </button> 
+ 
+ 
+    <div class="chat-window" id="chatWindow"> 
+ 
+        <div class="chat-header"> 
+ 
+            <div class="chat-avatar"> 
+                T 
+            </div> 
+ 
+            <div> 
+                <strong>Trixie Assistant</strong> 
+ 
+                <span> 
+                    <i class="fa-solid fa-circle"></i> 
+                    Online 
+                </span> 
+ 
+            </div> 
+ 
+ 
+            <button 
+                type="button" 
+                id="closeChat" 
+                aria-label="Close chat" 
+            > 
+ 
+                <i class="fa-solid fa-xmark"></i> 
+ 
+            </button> 
+ 
+        </div> 
+ 
+ 
+        <div 
+            class="chat-messages" 
+            id="chatMessages" 
+        > 
+ 
+            <div class="bot-message"> 
+ 
+                Hi 👋 Welcome to Trixie Technologies. 
+                What would you like help with? 
+ 
+            </div> 
+ 
+ 
+            <div class="quick-options"> 
+ 
+                <button 
+                    type="button" 
+                    data-question="website" 
+                > 
+                    <i class="fa-solid fa-code"></i> 
+                    Website 
+                </button> 
+ 
+ 
+                <button 
+                    type="button" 
+                    data-question="system" 
+                > 
+                    <i class="fa-solid fa-gears"></i> 
+                    Business System 
+                </button> 
+ 
+ 
+                <button 
+                    type="button" 
+                    data-question="analytics" 
+                > 
+                    <i class="fa-solid fa-chart-line"></i> 
+                    Data Analytics 
+                </button> 
+ 
+ 
+                <button 
+                    type="button" 
+                    data-question="contact" 
+                > 
+                    <i class="fa-solid fa-phone"></i> 
+                    Contact Us 
+                </button> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+ 
+        <form 
+            class="chat-input" 
+            id="chatForm" 
+        > 
+ 
+            <input 
+                type="text" 
+                id="chatInput" 
+                placeholder="Type a message..." 
+                autocomplete="off" 
+            > 
+ 
+ 
+            <button 
+                type="submit" 
+                aria-label="Send message" 
+            > 
+ 
+                <i class="fa-solid fa-paper-plane"></i> 
+ 
+            </button> 
+ 
+        </form> 
+ 
+    </div> 
+ 
+</div> 
+ 
+ 
+<!-- ========================================= 
+     BACK TO TOP 
+========================================= --> 
+ 
+<button 
+    type="button" 
+    class="back-top" 
+    id="backTop" 
+    aria-label="Back to top" 
+> 
+ 
+    <i class="fa-solid fa-arrow-up"></i> 
+ 
+</button>
+    <script src="script.js"></script>
+</body> 
+</html>
