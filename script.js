@@ -534,3 +534,162 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateWorkflowStages();
 });
+
+
+
+/* =========================================================
+   TRIXIE TECHNOLOGIES — CLIENTS SLIDER
+   Smooth responsive infinite slider
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const windowEl = document.querySelector(".clients-window");
+    const marquee = document.querySelector(".clients-marquee");
+
+    if (!windowEl || !marquee) return;
+
+    let position = 0;
+    let speed = 0.55;
+    let paused = false;
+    let animationFrame;
+
+    /*
+     * The HTML contains:
+     * FIRST SET + DUPLICATE SET
+     *
+     * We calculate the width of the first set,
+     * so the slider can loop perfectly.
+     */
+    function getLoopWidth() {
+
+        const cards = marquee.querySelectorAll(".client-card");
+
+        if (cards.length < 2) return 0;
+
+        const half = Math.floor(cards.length / 2);
+
+        let width = 0;
+
+        for (let i = 0; i < half; i++) {
+            width += cards[i].getBoundingClientRect().width;
+        }
+
+        /*
+         * Add the gaps between cards.
+         */
+        const styles = window.getComputedStyle(marquee);
+        const gap = parseFloat(styles.columnGap || styles.gap || 0);
+
+        width += gap * (half - 1);
+
+        return width;
+    }
+
+    let loopWidth = getLoopWidth();
+
+    /*
+     * Responsive speed.
+     */
+    function updateSpeed() {
+
+        if (window.innerWidth <= 360) {
+            speed = 0.35;
+        } else if (window.innerWidth <= 600) {
+            speed = 0.42;
+        } else if (window.innerWidth <= 900) {
+            speed = 0.5;
+        } else {
+            speed = 0.6;
+        }
+    }
+
+    updateSpeed();
+
+    /*
+     * Main animation.
+     */
+    function animateClients() {
+
+        if (!paused && loopWidth > 0) {
+
+            position -= speed;
+
+            /*
+             * Once the first set has completely moved away,
+             * jump back by exactly one set.
+             *
+             * Because the second set is identical,
+             * the user sees a seamless loop.
+             */
+            if (Math.abs(position) >= loopWidth) {
+                position += loopWidth;
+            }
+
+            marquee.style.transform =
+                `translate3d(${position}px, 0, 0)`;
+        }
+
+        animationFrame = requestAnimationFrame(animateClients);
+    }
+
+    /*
+     * Pause when the user touches the slider.
+     * This makes mobile interaction feel much better.
+     */
+    windowEl.addEventListener("touchstart", () => {
+        paused = true;
+    }, { passive: true });
+
+    windowEl.addEventListener("touchend", () => {
+
+        setTimeout(() => {
+            paused = false;
+        }, 700);
+
+    }, { passive: true });
+
+    /*
+     * Pause when mouse is over the slider on desktop.
+     */
+    windowEl.addEventListener("mouseenter", () => {
+        paused = true;
+    });
+
+    windowEl.addEventListener("mouseleave", () => {
+        paused = false;
+    });
+
+    /*
+     * Recalculate after resizing.
+     */
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            loopWidth = getLoopWidth();
+            updateSpeed();
+
+            /*
+             * Keep the current position inside
+             * the new loop range.
+             */
+            if (loopWidth > 0) {
+                while (Math.abs(position) >= loopWidth) {
+                    position += loopWidth;
+                }
+            }
+
+        }, 150);
+    });
+
+    /*
+     * Start.
+     */
+    animationFrame = requestAnimationFrame(animateClients);
+
+});
